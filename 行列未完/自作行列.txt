@@ -1,0 +1,101 @@
+
+https://atcoder.jp/contests/abc009/submissions/47817539
+
+K, M = map(int, input().split())
+A = list(map(int, input().split()))
+C = list(map(int, input().split()))
+
+if M <= K:
+    print(A[M - 1])
+    exit()
+    
+n = M - K
+
+X = []
+X.append(C)
+one = (1<<32) - 1
+for row in range(1, K):
+    tmp = []
+    for col in range(K):
+        if col + 1 == row:
+            tmp.append(one)
+        else:
+            tmp.append(0)
+    X.append(tmp)
+
+
+
+
+
+# 行列累乗ライブラリ
+
+def diagonal_mat(N):
+    # 対角成分が1で他が0になるN×N行列を生成する
+    A = [[0 for col in range(N)] for row in range(N)]
+    for i in range(N):
+        A[i][i] = 1
+
+
+def dot(A, B):
+    # 二次元行列Aと二次元行列Bの行列積を計算して行列Cにして返す   A・B と B・A は違うので注意！
+    A_H = len(A)     # Aの行数
+    A_W = len(A[0])  # Aの列数
+    B_H = len(B)     # Bの行数
+    B_W = len(B[0])  # Bの列数
+
+    # Aの列数 = Bの行数である必要がある
+    if A_W != B_H:
+        print("matrix size error")
+        exit()
+
+    C = []
+    
+    for A_row in range(A_H):
+        C_row = []
+        for B_col in range(B_W):
+            tmp_sum = 0
+            for i in range(A_W):  # B_Hでも同じ
+                
+                tmp_sum += A[A_row][i] * B[i][B_col]
+            
+            C_row.append(tmp_sum)
+       
+        C.append(C_row)
+    
+    return C
+
+
+C = dot([[7,4,-1], [3,0,5]], [[5,2],[3,1],[4,-1]])
+print(C)
+
+
+"""
+def mat_pow_mod(mat, n):
+    # matをn乗したい  (matはsize×sizeの行列)
+    size = len(mat)
+    res = np.eye(size, dtype=int)  # やがて返り値になる行列。対角成分が1で他が0
+    
+    # 繰り返し二乗法 的な
+    # n = 5 (mat^5が欲しい)なら  101で mat^4 * mat^1
+    
+    while n > 0:  # nを二進数で考える
+        if n & 1: # 最下位ビットが1ならば
+            res = np.dot(res, mat)  # 行列積を計算   resにmat^(2^k) を取り込むイメージ
+        mat = np.dot(mat, mat)      # mat^1 -> mat^2 -> mat^4 -> mat^8 -> 
+        n >>= 1   # 二進数表記のnを右に1ビットシフト
+    return res
+
+
+# 行列の累乗を計算
+result = mat_pow_mod(X, n)
+
+
+for row in result:
+    print(row)
+
+ans = 0
+for col in range(K):
+    ans ^= result[0][col] & A[-(col + 1)]
+
+print(ans)
+"""

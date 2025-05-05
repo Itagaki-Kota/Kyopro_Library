@@ -1,0 +1,43 @@
+Union-Find木 (Disjoint Set Union)(UF)(DSU) (素集合データ構造)(素集合系: どの二つの集合も互いに素(積集合がφ)な, 集合の集まり)
+
+・統合クエリ(二つの頂点を同じグループに統合する)
+Union by size: 統合するときは, 頂点数が多いグループの方が根になるようにする
+
+・回答クエリ(二つの頂点が同一グループに属するか否かを回答する)
+
+
+
+※ uf.par[i] が-1になる(すなわち根である)頂点の個数 が 連結成分の個数になる。 
+↑(uf.parの先頭の1個はダミーの可能性あるので注意)
+
+
+鉄則本p374-
+A66 Connect Query (https://atcoder.jp/contests/tessoku-book/submissions/39577051)
+
+
+
+
+
+◎ UnionFindは統合は出来ても, 分割することは出来ない
+頂点を失活させていく(ある頂点に接続する辺を不能にしていく)ような問題の場合, 「クエリを逆読み」する。
+すべてのイベントが終わった後の状態のグラフを構築し、クエリを逆に読んで行き, 辺の情報を矛盾なく追加していく。
+この「矛盾なく」が意外と難しい...。
+同じ頂点が「二度」攻撃されるケースにも注意！
+
+(特定の「辺」が不能になるパターン。下の問題では同じ辺は二度攻撃されない)
+鉄則本B66 Typhoon (https://atcoder.jp/contests/tessoku-book/submissions/45038906)
+
+(「頂点」とそれに接続する辺が不能になるパターン。こちらの方が難しい。下の問題では同じ頂点への二度以上の攻撃もありうる)
+Moja METEORITE (https://mojacoder.app/users/matcharate12/problems/meteorite/submissions/975da2d6-13a1-495b-b631-2bfce1b4bc9d)
+
+
+
+
+
+
+
+
+(重み付きUnion-Find 年齢の相関関係)...？　　仕組み？ 根と葉の方向どっちがどっち？ 
+https://atcoder.jp/contests/abc087/submissions/50204754
+
+

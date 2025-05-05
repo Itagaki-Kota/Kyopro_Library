@@ -1,0 +1,36 @@
+ABC137 D Summer Vacation (https://atcoder.jp/contests/abc137/submissions/34520903)
+ABC253 C Max - Min Query (https://atcoder.jp/contests/abc253/submissions/34522135) 
+
+
+import heapq
+
+a = [4,6,5,3,2]
+heapq.heapify(a)    #再代入の必要なし。#aは必ずリスト
+print(a)
+→[2,3,5,4,6]
+
+常に一番左に最小値が来る。ほかの要素はばらばら。
+あらかじめマイナスを付しておけば, 最大値も取り出せる。
+
+データ型自体はlist型のままである。
+
+(!!注意!!)
+一度ヒープにしたつもりでも, 
+a.append(1)　とかやってしまうと, 普通に末尾に1が追加されて[2,3,5,4,6,1]となってしまう。
+(a.remove(値)など, リストの関数全般にも同じことがいえる。)
+heappopの動作もその直後の一回分おかしくなるので, 
+ヒープの恩恵を得たいときは
+
+【しっかりヒープ用の構造(場合によってはリストと別物の構造)を作って 『heappopとheappushのみ』使うこと！！！】(どうしてもremoveとかするなら,した後にheapifyし直す)
+
+
+
+空リストにheappushしていくなら, heapifyは必要ない。
+なるだけヒープは一次元で扱う方が良いと思うが, 二次元にしたい場合,
+二次元リストを一気にheapifyすることはできない(エラー)ので,空リストにheappushしていく。 
+
+
+heapq.heappop(list)         O(logN) (空リストからheappopするとエラーなので注意)
+heapq.heappush(list, elem)  O(logN)
+list[0]                     O(1)    (削除せずに取得するだけでいいなら)
+heapq.heapify(list)         O(N) ←  計算量注意

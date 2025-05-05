@@ -1,0 +1,25 @@
+二分探索  ⚠単調性の確認⚠
+bisectモジュールの使い方はPAST本p274-275
+
+left = 考えられるmin
+right = 考えられるmax
+zone = right - left + 1    # 探索範囲の個数(整数のときのみ)(不要なときもある)
+center = left + zone // 2  # 判定にかけられる値。 探索範囲の中心を取るために, leftに+しているのを忘れないで
+
+
+配列の中で特定の値がどこにあるか？　ってときに. list.index(値)とか,forで線形探索とか, O(N)使わなくても, O(logN)で行ける。
+配列の中に特定の値が存在しているか？ は集合のin がO(1)で一番かもしれないが, 一応にぶたんもやろうと思えば行ける。
+
+ 
+
+典型90 076Cake Cut    【円環数列において, 入力値の1/10になるような連続部分和が存在するかを, 累積和と二分探索で計算量NlogNで求める】
+https://atcoder.jp/contests/typical90/submissions/33797754
+
+ABC146 C Buy an Integer 【二分探索の標準的な実装かつ, 良問】
+https://atcoder.jp/contests/abc146/submissions/34720545
+
+鉄則B12 【単調性のある方程式の解を求める, 小数が不可避なので,誤差の判定を意識】
+https://atcoder.jp/contests/tessoku-book/submissions/34988746
+
+
+※『答えで二分探索』という概念にも着目！

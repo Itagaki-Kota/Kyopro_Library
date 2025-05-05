@@ -1,0 +1,41 @@
+【セグメント木】
+鉄則本p324-
+配列のある値の更新 O(logN)                         (更新クエリ)
+ある区間内の最大値, 最小値, 総和を求める O(logN)   (回答クエリ)
+
+
+セグ木のA[0]とかが空いていても大丈夫なので 『問題文のindexの通りに』実装するのがよさそう！
+
+
+
+
+※再帰回数オーバーでREに注意 
+import sys
+sys.setrecursionlimit(10 ** 6)
+
+
+※ 
+・インデックスまわりに留意
+・セグ木の各セル dat[i]の初期値に留意
+・更新クエリのときに左下と右下のセルから, どのように更新するか(max, min, 和)
+・回答クエリのときにセルが「一切含まれない場合」の返り値      (Maximumなら極端に小さい値, Minimumなら極端に大きい値, RSQなら0)
+・回答クエリの返り値 (max, min, 和)
+
+
+RMQ(Range Maximum Query)  (鉄則本A58) (https://atcoder.jp/contests/tessoku-book/submissions/39937363)
+                          ☆(ACL 非再帰)(https://atcoder.jp/contests/tessoku-book/submissions/51249526)
+
+RMQ(Range Minimum Query)  (鉄則本B58) (https://atcoder.jp/contests/tessoku-book/submissions/39979622)
+O(N**2)の1次元DP(長さN, 遷移N)をセグ木で高速化。
+貰うDPにした途端に見通しが良くなる。
+セグ木の最下段である, (見かけ上の) A[i]がdp配列になる。
+実際には A[i]はZ.dat[i + Z.size]に対応している。
+
+RSQ(Range Sum Query)      (鉄則本A59) (https://atcoder.jp/contests/tessoku-book/submissions/39947255)
+                          (鉄則本B59) (https://atcoder.jp/contests/tessoku-book/submissions/40078652) 
+                          (順列の転倒数をO(NlogN)で求める)(順列でないならば, 入力配列をLとしたとき, Z = Segtree(max(L))として, セグ木の最下段の長さを十分に確保する?)
+　　　　　　　　　　　　　(-> 非順列の場合, 配列の長さは小さくても, 極端に大きい値が含まれると, TLEするのでは？)
+
+
+
+※LISやLDSもセグ木で良いのでは...？

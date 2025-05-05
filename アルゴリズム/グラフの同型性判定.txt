@@ -1,0 +1,9 @@
+【グラフの同型性判定】
+
+ABC232 -C Graph Isomorphism  (単純無向)
+(https://atcoder.jp/contests/abc232/submissions/39828086)
+
+・二つのグラフの頂点数, 辺数が等しいのは大前提
+・順列Pを全探索する。各辺に対応する写像(?)が存在するか確認していく
+
+O(M * N!)

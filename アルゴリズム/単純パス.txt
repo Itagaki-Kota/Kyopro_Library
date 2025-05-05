@@ -1,0 +1,33 @@
+単純パス『同じ頂点を二度通らないパス』
+
+
+ABC 270 C Simple path 【木の単純パスを求める。BFSして最短手数を頂点に記入した後, 後ろから復元。】
+https://atcoder.jp/contests/abc270/submissions/35133773
+
+
+↑この特殊なDFS っていうのはバックトラック法で本当は再帰が出来たらかっこいい
+再帰を使わずに
+【「木上の」バックトラック(根からの単純パス列挙)】
+
+pathリスト <- 根id
+visリスト <- N個の要素をFalseで初期化
+
+while pathリストの長さが1以上:
+    now_id <- pathリストの末尾のid
+    visリスト[now_id] <- True
+
+    for ne_id in G[now_id]:
+        if vis[ne_id] が False:
+            path.append(ne_id)
+            break  # 隣接点の内, 未訪問の頂点を「ひとつだけ」パスに入れてbreakしているのがポイント
+    else:
+        # これ以上入れる隣接点が無かったときひとつのパスが成立
+        今のpathを答えの一つとして保存。
+        path.pop()
+
+
+
+
+ABC284 E Conut Simple Paths 【単純無向グラフで, 単一始点の単純パスの総本数を数える(特殊なDFS)】
+https://atcoder.jp/contests/abc284/submissions/37866377
+

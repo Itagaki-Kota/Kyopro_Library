@@ -1,0 +1,37 @@
+【最小全域木】(MST)(Minimum Spanning Tree)
+
+N個の頂点が個々に存在しており, 
+M本の重み付きの辺の候補からN - 1本選んで(連結な)木を構成し, 使った辺の重みの総和を最小化する。 
+
+無向グラフのみ.
+重みが負の辺があってもよい(はず)。
+
+重みの小さい辺から追加していくという, 貪欲法
+
+
+※最小全域木の合計コストは一意に定まるが, 最小全域木の構成の仕方は一通りではない可能性がある。
+
+
+
+
+◎プリム法 O((N + M)logM)
+ヒープを用いて, 候補の中から,重みが最小の辺を取り出す。
+すでに作ってある(作っている最中の)木全体から伸ばせる辺の内, 最もコストの小さい辺を新たに繋ぐ。
+PAST本 p308-319 (https://atcoder.jp/contests/typical-algorithm/submissions/36786756) (与えられる頂点が 0-index)
+鉄則本A67       (https://atcoder.jp/contests/tessoku-book/submissions/39893609)      (与えられる頂点が 1-index)
+
+
+
+
+◎クラスカル法 O(MlogM + N)
+グラフというより、Union-Findを利用する。(統合と回答(同一グループか？))
+コストの小さい辺から見ていき, その辺の両端の頂点が異なる連結成分に属するならば, その辺を追加する。
+鉄則本A67 p382 (https://atcoder.jp/contests/tessoku-book/submissions/39893904)
+
+
+
+
+
+★最大全域木(Max MST)
+コストが大きい辺から確認するようにすればよいだけ。
+鉄則本B67 (https://atcoder.jp/contests/tessoku-book/submissions/39894014)  (クラスカル法)

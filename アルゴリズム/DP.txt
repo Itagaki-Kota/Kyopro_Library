@@ -1,0 +1,79 @@
+★★動的計画法(DP)(DynamicProgramming)★★
+本質的には同じだが, 実装方法二種類(基本どちらでもよい)
+・トップダウン(メモ化再帰)                (import sys   sys.setrecursionlimit(10 ** 6)  PyPyだと再帰遅い)(流れが追いにくいのでは？)
+・ボトムアップ(分割統治法)(漸化式ループ)  (for でdp配列を(順に)求めていく)
+
+◎状態定義 (部分問題の答えとして何を保存しておくか)
+◎遷移     (どういう漸化式, 関係性)
+
+◎どういう配列を持って,どこが答えになるか
+
+
+最終的な答えに(直接的に)繋がるdp配列を作ってしまって, 最終的な出力をつくってしまう。(状態定義が何なのか意識)
+dp配列の初期部分は自力で最初に求めてしまうなど,やりやすいように工夫。(インデックス周りやりずらいかもしれないが頑張る)
+
+制約が緩ければ, bit全探索できるのにっていうときに有効かも
+何かを最大化したり,最小化したりする問題や, 何通りの経路があるかを足し算したり
+
+動的計画法という枠組みにとらわれすぎずに,要するに
+dp配列という名の【マス目に,部分問題の答えを埋めていく】考え方。
+
+※そもそも直感的な方法や探索解で解けるなら, わざわざDPしなくとも良い※
+
+
+・メモ化再帰はdefaultdictなどでも可(https://atcoder.jp/contests/abc275/submissions/36159271)
+しかし, lru_cacheのデコレータの方が速い！(https://atcoder.jp/contests/abc275/submissions/36159392)
+lru_cacheはPyPyでは使えないので注意！！(setrecursionlimit不要)
+
+
+
+
+
+
+
+
+
+
+
+【オレンジ本・PAST本】
+【paizaラーニングDPメニュー(https://paiza.jp/works/mondai/dp_primer/problem_index?language_uid=python3)】
+【アルゴ式(https://algo-method.com/tasks)】
+【EDPC(https://atcoder.jp/contests/dp)・TDPC(https://atcoder.jp/contests/tdpc)】
+【HPCP】
+
+
+
+★一次元配列の動的計画法(計算量はdp配列の長さ)
+Frog問題(階段系など)や, 白昼夢なども。漸化式的なもの。根付き木の,根から葉や,葉から根へ求まっていくもの。
+    ☆LIS, LDS (Longest Increasing Subsequence)(Longest Decreasing Subsequence)(最長増加部分列)(最長減少部分列)
+
+★二次元配列の動的計画法(計算量はdp配列の面積)
+
+    ☆貪欲法で行けそうで行けないやつ(EDPC C Vacation,  ABC266 D Snuke Panic)
+    ☆ナップザック
+    ☆部分和
+    ☆LCS(Longest Common Subsequence)(最長共通部分列)
+    ☆編集距離
+
+    ☆bitDP (巡回セールスマン問題など)
+    集合に対する動的計画法とも。
+    (各要素が揃った揃ってないとか)縦の状態を, 2進数の10進数表現で管理して, OR計算 | とか使う。
+    【巡回セールスマン】
+    鉄則B23(https://atcoder.jp/contests/tessoku-book/submissions/36175982)
+    典型アルゴリズム問題集C(https://atcoder.jp/contests/typical-algorithm/submissions/36175760)
+
+    ☆区間DP
+    dp[左端][右端]: で管理して, 左端～右端までの最大スコア等を考える。マス走査の範囲(N**2の半分)や, 走査の順番(ナナメ方向とか)が不規則になりがちなので注意。
+
+
+★ 3次元DP 
+・「ちょうどX個選ぶ」ときの部分和(https://atcoder.jp/contests/math-and-algorithm/submissions/38923847)
+・「X個まで」しか選べないという個数制限つきのナップザック(https://atcoder.jp/contests/abc015/submissions/38925035)
+
+
+
+☆経路等の復元はdpした後,「逆から」考えるが,必ずしも復元は一通りではないことに注意(出力例と異なっても正解の可能性あり！)
+☆遷移考えるのが難しいときは理論を無視して実験的に手作業でマスを埋めれば,力ずくで遷移を発見できる奇跡もあるかもしれない。
+
+
+ 

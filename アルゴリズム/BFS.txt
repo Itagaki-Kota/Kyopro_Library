@@ -1,0 +1,29 @@
+# BFS (幅優先探索)(FIFO, キュー)(浸潤していくように)(マス目上の最短移動手数)
+
+ATC002 A 幅優先探索 【座標上の最短移動手数】
+https://atcoder.jp/contests/atc002/submissions/33778252
+
+Paiza S002 最短距離を測る 【座標上の到達可能性＆最短移動手数】
+
+
+ABC272 D Root M Leaper【座標上の全点への最短移動手数, ただし移動先は現地点から距離√M の場所】 
+https://atcoder.jp/contests/abc272/submissions/35508997
+
+
+ABC161 D Lunlun Number 【グラフ的な性質に落とし込み, 法則性に基づいて整数を列挙する】
+https://atcoder.jp/contests/abc161/submissions/34357221
+
+
+第11回PAST G 木の判定 【単純無向グラフ】
+https://atcoder.jp/contests/past202206-open/submissions/36732491
+木(グラフ全体が連結で, 閉路(サイクル)が無い)の判定は, 適当な頂点からBFSをして他の全ての頂点へ到達可能である(-> 連結) かつ, 辺が N - 1本(閉路が無い)。
+
+
+
+
+鉄則本A63【単純無向グラフの単一始点最短経路長】
+https://atcoder.jp/contests/tessoku-book/submissions/38862153
+
+
+鉄則本B62【単純無向グラフの任意の二頂点の最短経路復元】
+https://atcoder.jp/contests/tessoku-book/submissions/39892196

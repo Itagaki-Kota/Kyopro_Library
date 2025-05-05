@@ -1,0 +1,7 @@
+【パスグラフ判定】
+単純無向グラフにおいて, パスグラフであるための必要十分条件は
+・辺がN - 1本
+・すべての頂点の次数が2以下
+・連結である
+
+ABC287-C Path Graph? (https://atcoder.jp/contests/abc287/submissions/39526486)

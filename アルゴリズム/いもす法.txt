@@ -1,0 +1,15 @@
+# いもす法(imos法)   
+「差分」を記録し,累積和・二次元累積和を利用することで, ある区間に+1するクエリを一度に済ませる
+ 累積和にも言えることだが,いもす法,累積和(その他テクニックも)、重要な共通点として「前処理.前計算」を施すことによって大量のクエリを高速に処理している。
+
+特に二次元に関してはindex等, 問題に応じて柔軟に頑張る必要がある。
+
+【一次元】鉄則本p56-
+鉄則A07(https://atcoder.jp/contests/tessoku-book/submissions/34884832) ← いもすしてないけど
+鉄則B07(https://atcoder.jp/contests/tessoku-book/submissions/34885723)
+ABC256 D Union of Interval (https://atcoder.jp/contests/abc256/submissions/34885348)　←いもすしてない
+ABC127 C(https://atcoder.jp/contests/abc127/submissions/37668614)
+
+【二次元】鉄則本p66-  p67の図が秀逸。
+鉄則A09(https://atcoder.jp/contests/tessoku-book/submissions/34966690)
+鉄則B09(https://atcoder.jp/contests/tessoku-book/submissions/34967379)

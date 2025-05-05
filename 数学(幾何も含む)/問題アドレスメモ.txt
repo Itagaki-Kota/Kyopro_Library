@@ -1,0 +1,1 @@
+https://atcoder.jp/contests/abc108/submissions/37647002 (隣接する2頂点(入力値)から, 反時計回りに正方形を作るときの, 残りの2頂点の座標を出力する)

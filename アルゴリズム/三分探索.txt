@@ -1,0 +1,20 @@
+単峰性のある【凸関数(下に凸な関数)】の, 閉区間における最小値を求める(【凹関数(上に凸な関数)】の最大値なら, f(x)にマイナスつけて上下反転させて最小値となるxを求める)
+
+◎定義域が実数(小数をとりうる)なのか,整数のみなのか。 
+
+
+
+
+①三分探索(https://qiita.com/DaikiSuyama/items/84df26daad11cf7da453)
+
+②微分してf'(x) = 0 となる x (極値をとるxの値)を求めて, その前後を探索する
+
+
+①
+ABC279 D.Freefall (https://atcoder.jp/contests/abc279/submissions/36839707)
+ARC054 B.ムーアの法則(https://atcoder.jp/contests/arc054/submissions/36839346)　(xの値が実数(小数刻み)なので注意))
+
+
+②
+ABC279 D.Freefall (https://atcoder.jp/contests/abc279/submissions/36839095)
+ARC054 B.ムーアの法則(https://atcoder.jp/contests/arc054/submissions/36838960)　(xの値が実数(小数刻み)なので注意))

@@ -1,0 +1,9 @@
+LCS (Longest Common Subsequence)(最長共通部分列)
+計算量O(|S||T|)
+
+EDPC F-LCS (https://atcoder.jp/contests/dp/submissions/35064884) 【復元まで】【LCSの長さだけならdp[-1][-1]】
+(https://maku.blog/p/a3jyhwd/)
+
+
+ゲノコン2021 B ペアワイズアラインメント 【復元まで】
+(https://atcoder.jp/contests/genocon2021/submissions/39815409)

@@ -1,0 +1,3 @@
+【順列が辞書順で何番目? and 辞書順で何番目の順列は？】
+(あんまり理解はしてない)(数Aの場合の数)
+https://atcoder.jp/contests/abc276/submissions/36364068

@@ -1,0 +1,25 @@
+最小共通祖先(Lowest Common Ancestor)(LCA)『根付き木(木構造)であることが前提』
+
+LCAの実現方法には, ダブリングや, セグメント木(RMQ)とオイラーツアーを用いるものなどがあるようだ。
+
+
+『ダブリング実装』(いかたこのたこつぼ)(https://ikatakos.com/pot/programming_algorithm/graph_theory/lowest_common_ancestor)
+◎0-indexdで頂点番号を扱う！！
+・G(隣接リスト)の要素は集合で持つ。各集合内には、(隣接頂点の番号, 辺の重み)のタプルが入っていく。(重み無しのときは重み1)
+・lcad = LcaDoubling(N, G, root = master)のときに, root = で指定した頂点番号が根になる
+
+lcad.get_lca(a, b)      -> 頂点番号aと頂点番号bの, 最小共通祖先となる頂点番号を返す
+lcad.get_distance(a, b) -> 頂点番号aと頂点番号bの, 最短距離を返す
+
+
+
+
+
+ABC209 D Collision 【木構造の,任意の二頂点間の最短距離】
+(https://atcoder.jp/contests/abc209/submissions/39058743)
+ABC014 D 閉路
+(https://atcoder.jp/contests/abc014/submissions/39061060)
+
+
+第1回PAST K 巨大企業 【木構造の, 任意の二頂点における最小共通祖先】
+(https://atcoder.jp/contests/past201912-open/submissions/39058949)

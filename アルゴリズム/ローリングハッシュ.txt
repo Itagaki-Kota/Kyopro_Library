@@ -1,0 +1,4 @@
+【ローリングハッシュ】
+
+鉄則A56(https://atcoder.jp/contests/tessoku-book/submissions/38437170)
+文字列S中の部分連続文字列の一致判定クエリを, ハッシュ値で比較

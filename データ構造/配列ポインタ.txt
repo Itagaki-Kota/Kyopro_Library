@@ -1,0 +1,116 @@
+単方向リスト(ポインタを用いた実装)
+【基本情報 科目Bサンプル 問10】
+
+・indexでは直接アクセスできないので, 二分探索などには向かない。(要素の参照は先頭から順に辿っていく必要がある)
+・要素の削除や挿入はO(1)で可能
+
+
+
+class ListElement():
+    def __init__(self, val, next_index):
+        self.val = val
+        
+        if next_index == len(A):
+            self.next = None  # ヌルポインタ
+        else:
+            self.next = ListElement(A[next_index], next_index + 1)
+        
+
+def delNode(pos):  # posはリストの要素数以下の自然数
+    """ 単方向リストから, 引数pos(1-indexed)で指定された位置の要素を削除する"""
+    global listHead
+
+    if pos == 1:
+        listHead = listHead.next
+    else:
+        prev = listHead      # prev : ListElement型
+
+        # posが2と等しいときは繰り返し処理を実施しない
+        for i in range(2, pos):
+            prev = prev.next
+            
+        prev.next = prev.next.next
+
+
+
+A = ["a", "b", "c", "d", "e", "f"]
+    
+# ListElement型のlistHead(大域変数)には, リストの先頭要素の参照があらかじめ格納されている
+listHead = ListElement("a", 1)
+
+print(listHead.val)            # a
+print(listHead.next.val)       # b
+print(listHead.next.next.val)  # c
+
+delNode(3)
+
+print(listHead.val)            # a
+print(listHead.next.val)       # b
+print(listHead.next.next.val)  # d
+
+
+
+
+
+def view(listHead, index):  # indexはリストの要素数以下の自然数
+    """listHeadをヘッダとする単方向リストのindex(1-indexed)を指定して要素を出力する"""
+    
+    now = listHead
+    
+    for _ in range(index - 1):
+        now = now.next
+        
+    print(now.val)
+
+
+view(listHead, 2)  # b
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+【基本情報 科目Bサンプル(small ver) 問3】
+class ListElement():
+    def __init__(self, qVal):
+        
+        self.val = qVal
+        self.next = None
+
+
+listHead = ListElement(None)
+
+
+def append(qVal):
+    """引数で与えられた文字を単方向リストに追加する"""
+    global listHead
+    
+    curr = ListElement(qVal)
+    
+    if listHead.val == None:
+        listHead = curr
+    else:
+        prev = listHead
+        while prev.next != None:
+            prev = prev.next
+        prev.next = curr
+
+
+print(listHead.val)  # None
+append("a")
+print(listHead.val)  # a
+append("b")
+print(listHead.next.val)  # b
+
+
+    

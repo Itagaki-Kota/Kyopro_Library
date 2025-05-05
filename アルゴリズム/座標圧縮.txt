@@ -1,0 +1,35 @@
+# 座標圧縮
+
+鉄則p101-
+【鉄則A15】
+・自己流(https://atcoder.jp/contests/tessoku-book/submissions/34993417)                                         (やや省メモリ？)
+・重複を消してソートした配列のindexと対応させる(https://atcoder.jp/contests/tessoku-book/submissions/34994762)  (はやい？)
+
+
+
+def Grid_Compression(A):
+    """リストAの座標圧縮したリストGCを返す"""
+    
+    N = len(A)
+    
+    B = set(A)
+    B = list(B)
+    B.sort()
+    
+    
+    B = {v : i + 1 for i, v in enumerate(B)}
+    
+    GC = [B[A[i]] for i in range(N)]
+
+    return GC
+
+
+A = [13, 45, 10, 78, 13, 45]
+GC = Grid_Compression(A)
+print(A)  #[13, 45, 10, 78, 13, 45]
+print(GC) #[2, 3, 1, 4, 2, 3]
+
+
+
+
+
