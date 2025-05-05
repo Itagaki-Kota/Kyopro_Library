@@ -1,0 +1,22 @@
+def f(x):
+    return x ** 2
+
+r = 2  # y = r の横一本。 f(x) = r の答えになるようなxが求めたい近似値。
+x = 2  # 近似解の初期値を適当に決める。
+
+n_calc = 5
+
+for _ in range(n_calc):
+    
+    y = f(x)  # (x, y)を接点に、y = f(x) の 接線を引く。
+    
+    a = 2 * x  # 接線の傾きは f'(x)
+    b = y - a * x  # 接線のy軸切片 (y = ax + b より)
+    
+    # 接線の式 y=ax+b に y=r を代入する。
+    # y=rの横一本と接線の交点のx座標が次の近似値になる。
+    next_x = (r - b)/a
+    
+    print(f"{x} -> {next_x:.20f}")
+    
+    x = next_x
